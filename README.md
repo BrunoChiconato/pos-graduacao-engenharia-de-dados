@@ -1,6 +1,6 @@
 # Data Engineering Postgraduate Repository
 
-This repository contains materials and code for my Postgraduate in Data Engineering program. It is organized by module, covering topics ranging from relational databases and SQL to cloud computing and humanities. The first module focuses on setting up and using SQL Server in Docker.
+This repository contains materials and code for my Postgraduate in Data Engineering program. It is organized by module, covering topics ranging from relational databases and SQL to cloud computing and humanities.
 
 
 ## Course Schedule

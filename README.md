@@ -27,14 +27,15 @@ This repository contains materials and code for my Postgraduate in Data Engineer
 > **Current focus:** Module 1 - Relational Databases and SQL Language
 
 
-## Module 1: SQL Server in Docker
+## Module 1: Relational Databases and SQL Language
 
-This section describes how to set up and run the SQL Server environment using Docker and Docker Compose.
+In this self-paced module, I explored the fundamentals of relational database systems, including the distinctions between OLTP and OLAP, and I learned to model data using ER diagrams and conceptual, logical, and physical schemas that enforced cardinality and normalization rules. I then mastered the SQL `SELECT` statement, applied filters, ranges, `DISTINCT`, sorting, and table joins to extract precisely the data I needed. In the final chapter, I tackled date/time handling, aggregate functions (`SUM`, `AVG`, `MIN`, `MAX`), `HAVING` filters, and more advanced constructs such as subqueries, views, and combining result sets. Throughout the module, I consulted curated readings for deeper insights, completed hands-on exercises to reinforce each topic, and participated in instructor-moderated discussion forums. By the end, I was confident in designing relational models, writing sophisticated SQL queries, and extracting meaningful insights from complex datasets.
 
 ### Prerequisites
 
 - Docker ≥ 20.10
 - Docker Compose ≥ 1.27
+- Database client (e.g. DBeaver, SSMS, etc)
 
 ### Getting Started
 
@@ -46,7 +47,7 @@ This section describes how to set up and run the SQL Server environment using Do
 
 2. **Prepare directories**
    ```bash
-   mkdir -p ql/data
+   mkdir -p sql/data
    ```
 
 3. **Configure the SA password** (optional)
@@ -97,38 +98,3 @@ This section describes how to set up and run the SQL Server environment using Do
   ```bash
   docker compose down -v
   ```
-
-## Troubleshooting
-
-- **Permission denied on startup**  
-  Ensure `sql/data/` is owned by UID 10001 (mssql user) and writable by the container:
-  ```bash
-  sudo chown -R 10001:10001 sql/data
-  chmod -R 750 sql/data
-  ```
-
-- **Permission denied on init scripts**  
-  Ensure `sql/init/` is readable by the container and editable by your user:
-  ```bash
-  sudo chown -R $(id -u):$(id -g) sql/init
-  chmod -R 755 sql/init
-  ```
-
-## Future Modules
-
-This repository will continue to expand with additional modules covering:
-
-- Python for Data Engineering
-- Data Governance
-- Data Lakes & Warehousing
-- Infrastructure & Pipelines
-- DevOps Practices
-- NoSQL Databases
-- Data Security
-- Distributed Processing
-- Data Consumption & Services
-- Monitoring & Optimization
-- Data Ingestion & Cataloging
-- Data Workflows & Orchestration
-- Cloud Computing
-- Humanities

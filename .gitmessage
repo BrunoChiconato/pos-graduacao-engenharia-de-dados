@@ -1,0 +1,45 @@
+# Commit template (.gitmessage)
+# 
+# Type guide:
+# 
+# feat: (Features) Add new functionality or capability to the system.
+# Example: feat: add user authentication module
+#
+# fix: (Bug Fixes) Correct an error, mistake, or bug in the code.
+# Example: fix: correct typo in login page title
+#
+# docs: (Documentation) Change only documentation files (README, comments, wikis).
+# Example: docs: update README with setup instructions
+#
+# style: (Formatting) Improve formatting, indentation, whitespaces without changing code behavior.
+# Example: style: reformat codebase with Prettier
+#
+# refactor: (Code Refactoring) Modify code structure without changing its behavior or adding features.
+# Example: refactor: reorganize database connection logic
+#
+# test: (Tests) Add or modify tests without affecting production code.
+# Example: test: add unit tests for user model
+#
+# chore: (Maintenance Tasks) Update build process, dependencies, configs — tasks not related to the source code.
+# Example: chore: update dependencies and build scripts
+#
+# perf: (Performance Improvements) Improve performance without changing external behavior.
+# Example: perf: optimize database queries for faster load time
+#
+# ci: (Continuous Integration) Changes to CI configuration files and scripts.
+# Example: ci: update GitHub Actions workflow for automatic deployment
+#
+# build: (Builds) Changes that affect the build system or external dependencies (e.g., npm, gradle).
+# Example: build: upgrade to Node.js 18
+#
+# revert: (Reverts) Revert a previous commit.
+# Example: revert: revert login error handling change
+#
+# Instructions:
+# - Write a short, imperative description on the first line.
+# - Leave a blank line.
+# - Provide additional details if necessary.
+
+<type>: <short summary>
+
+[Instructions]

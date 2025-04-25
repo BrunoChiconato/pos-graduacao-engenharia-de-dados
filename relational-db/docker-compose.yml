@@ -1,0 +1,47 @@
+services:
+  permissions:
+    image: alpine:latest
+    volumes:
+      - ./sql/data:/var/opt/mssql
+      - ./sql/init:/scripts
+    entrypoint: >
+      sh -c "
+        echo 'Ajustando permissões...';
+        chown -R 10001:10001 /var/opt/mssql;
+        chmod -R 750 /var/opt/mssql;
+        chown -R 10001:10001 /scripts;
+        chmod -R 755 /scripts;
+      "
+    restart: "no"
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    depends_on:
+      - permissions
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Admin123!"
+      MSSQL_PID: "Express"
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./sql/data:/var/opt/mssql
+    restart: always
+
+  sql_init:
+    image: mcr.microsoft.com/mssql-tools
+    depends_on:
+      - sqlserver
+      - permissions
+    volumes:
+      - ./sql/init:/scripts
+    entrypoint: >
+      bash -c "
+        echo 'Aguardando SQL Server iniciar...';
+        sleep 20;
+        for f in /scripts/*.sql; do
+          echo 'Executando script:' \$\$f;
+          /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P 'Admin123!' -d master -i \$\$f;
+        done
+      "

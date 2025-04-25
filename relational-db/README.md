@@ -23,6 +23,20 @@ This ER diagram was created to represent a library system based on the following
 
 ![Library System ER Diagram](./pics/challenge-4.png)
 
+---
+
+### Banking System ER Model
+
+In this challenge, I was given a customer report from a banking system and tasked with designing a data model capable of supporting and reproducing it. I analyzed the structure and contents of the report and identified key entities such as clients, accounts, agencies, cities, and banks. Based on this, I created a fully normalized Entity-Relationship Diagram (ERD), ensuring compliance with the First, Second, and Third Normal Forms (1NF, 2NF, and 3NF). The resulting model eliminates redundancy, maintains data integrity, and supports efficient queries across relational joins.
+
+**Original Customer Report:**
+
+![Original Customer Report](./pics/challenge-5-source.png)
+
+**Normalized ER Diagram:**
+
+![Banking System ER Diagram](./pics/challenge-5.png)
+
 
 ## Prerequisites
 

@@ -1,4 +1,4 @@
-# Module 1: Relational Databases and SQL Language
+# Relational Databases and SQL Language
 
 In this self-paced module, I explored the fundamentals of relational database systems, including the distinctions between OLTP and OLAP, and I learned to model data using ER diagrams and conceptual, logical, and physical schemas that enforced cardinality and normalization rules. I then mastered the SQL `SELECT` statement, applied filters, ranges, `DISTINCT`, sorting, and table joins to extract precisely the data I needed. In the final chapter, I tackled date/time handling, aggregate functions (`SUM`, `AVG`, `MIN`, `MAX`), `HAVING` filters, and more advanced constructs such as subqueries, views, and combining result sets. Throughout the module, I consulted curated readings for deeper insights, completed hands-on exercises to reinforce each topic, and participated in instructor-moderated discussion forums. By the end, I was confident in designing relational models, writing sophisticated SQL queries, and extracting meaningful insights from complex datasets.
 
@@ -66,7 +66,7 @@ In this challenge, I was given a customer report from a banking system and taske
 
 4. **Start services**
    ```bash
-   docker compose up -d
+   docker compose up -d --build
    ```
 
 5. **Verify SQL Server is ready**
@@ -89,10 +89,6 @@ In this challenge, I was given a customer report from a banking system and taske
      - Database: `master`
      - Username: `sa`
      - Password: your SA password
-   - Using **sqlcmd** inside the container:
-     ```bash
-     docker compose exec sql_init bash -c "echo 'SELECT @@VERSION;' | sqlcmd -S sqlserver -U sa -P 'Admin123!'"
-     ```
 
 ## Data Persistence
 
@@ -101,7 +97,7 @@ In this challenge, I was given a customer report from a banking system and taske
   ```bash
   docker compose down
   ```
-- To remove containers and volumes:
+- To remove containers, volumes and networks:
   ```bash
-  docker compose down -v
+  docker compose down --volumes
   ```

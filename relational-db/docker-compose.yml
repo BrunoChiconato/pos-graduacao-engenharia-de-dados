@@ -28,20 +28,40 @@ services:
     volumes:
       - ./sql/data:/var/opt/mssql
     restart: always
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo > /dev/tcp/127.0.0.1/1433"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
 
   sql_init:
     image: mcr.microsoft.com/mssql-tools
     depends_on:
-      - sqlserver
-      - permissions
+      permissions:
+        condition: service_completed_successfully
+      sqlserver:
+        condition: service_healthy
     volumes:
       - ./sql/init:/scripts
-    entrypoint: >
-      bash -c "
-        echo 'Aguardando SQL Server iniciar...';
-        sleep 20;
-        for f in /scripts/*.sql; do
-          echo 'Executando script:' \$\$f;
-          /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P 'Admin123!' -d master -i \$\$f;
-        done
-      "
+    entrypoint:
+      - bash
+      - -c
+      - |
+        set -e
+
+        echo "=== Aguardando SQL Server iniciar… ==="
+        sleep 5
+
+        echo "=== Dropping bd_empresa se existir ==="
+        /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P 'Admin123!' \
+          -Q "IF DB_ID('bd_empresa') IS NOT NULL DROP DATABASE [bd_empresa];" -b
+
+        echo "=== Dropping bd_filmes se existir ==="
+        /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P 'Admin123!' \
+          -Q "IF DB_ID('bd_filmes') IS NOT NULL DROP DATABASE [bd_filmes];" -b
+
+        echo "=== Executando init.sql original ==="
+        /opt/mssql-tools/bin/sqlcmd -S sqlserver -U sa -P 'Admin123!' \
+          -d master -i /scripts/init.sql -b
+
+        echo "=== Init concluído ==="

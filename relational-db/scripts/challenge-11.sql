@@ -41,8 +41,3 @@ GROUP BY
 	nom_local
 HAVING
 	COUNT(cod_projeto) > 2
-	
-	
-	
-	
-	

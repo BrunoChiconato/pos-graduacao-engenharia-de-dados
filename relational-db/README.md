@@ -99,4 +99,5 @@ In this challenge, I was given a customer report from a banking system and taske
   ```
 - To remove containers, volumes and networks:
   ```bash
-  docker compose down --volumes  ```
+  docker compose down --volumes
+  ```

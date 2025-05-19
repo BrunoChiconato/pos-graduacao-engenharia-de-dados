@@ -1,5 +1,10 @@
 # Relational Databases and SQL Language
 
+![Course Load](https://img.shields.io/badge/Course%20Load-24h-blue)
+![Unit](https://img.shields.io/badge/Unit-PUC%20Minas%20Virtual-orange)
+
+## Overview
+
 In this self-paced module, I explored the fundamentals of relational database systems, including the distinctions between OLTP and OLAP, and I learned to model data using ER diagrams and conceptual, logical, and physical schemas that enforced cardinality and normalization rules. I then mastered the SQL `SELECT` statement, applied filters, ranges, `DISTINCT`, sorting, and table joins to extract precisely the data I needed. In the final chapter, I tackled date/time handling, aggregate functions (`SUM`, `AVG`, `MIN`, `MAX`), `HAVING` filters, and more advanced constructs such as subqueries, views, and combining result sets. Throughout the module, I consulted curated readings for deeper insights, completed hands-on exercises to reinforce each topic, and participated in instructor-moderated discussion forums. By the end, I was confident in designing relational models, writing sophisticated SQL queries, and extracting meaningful insights from complex datasets.
 
 

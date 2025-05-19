@@ -24,4 +24,4 @@ This repository contains materials and code for my Postgraduate in Data Engineer
 | 15 | Cloud Computing                                                              | 23/02/2026  | 24 hours  |
 | 16 | Humanities                                                                   | 23/02/2026  | 24 hours  |
 
-> **Current focus:** Module 2 - Discrete and Continuous Data Stream Processing
+> **Current focus:** Module 3 - Python for Data Engineering
